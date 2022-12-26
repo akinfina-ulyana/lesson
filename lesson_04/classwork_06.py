@@ -10,3 +10,4 @@ for i in range(n, m):
     if i % j == 0:
         print(i)
 
+# не работает
