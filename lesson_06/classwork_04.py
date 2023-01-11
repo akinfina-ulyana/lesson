@@ -12,14 +12,16 @@ def card_random():
    # test_list_2 = ["Hearts", "Diamonds", "Clubs", "Spades"]
 
     #return print(random.choice(test_list) + "-" + random.choice(test_list_2))
-    return print(random.choice(test_list))
+    v = random.choice(test_list)
+    print(v)
+    return v
 
 
 summa = 0
 while summa < 21:
     card = card_random()
     print(card)
-    if card == range(1, 11):
+    if card in range(1, 11):
         summa += card
     elif card == "J" or "D" or "K":
         summa += 10
