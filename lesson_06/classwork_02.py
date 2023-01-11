@@ -7,7 +7,6 @@ with open("dict.csv", "r") as file:
        for row in reader
    }
 
-
 def eng_to_rus(word):
     return dictionary.get(word, "ERROR")
 
