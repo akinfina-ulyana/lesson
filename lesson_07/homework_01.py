@@ -7,8 +7,8 @@
 
 Используя условие первой задачи из урока, проверить то же самое только для коней.
 """
-first = [4, 7]
-second = [5, 9]
+first = [0, 0]
+second = [1, 4]
 if __name__ == "__main__":
     if second[0] == first[0] + 1 and second[1] == first[1] - 2:
         print("Yes")
@@ -28,3 +28,5 @@ if __name__ == "__main__":
         print("Yes")
     else:
         print("No")
+
+
