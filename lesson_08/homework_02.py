@@ -1,3 +1,5 @@
+import time
+
 from lesson_08.homework_01_02 import Car
 
 if __name__ == "__main__":
@@ -5,5 +7,6 @@ if __name__ == "__main__":
 
     while car.speed < 100:
         car.speed_plus5()
-        print("Km/h")
+        time.sleep(0.5)
         car.speed_display()
+        print("Km/h")
