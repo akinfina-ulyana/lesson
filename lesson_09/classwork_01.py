@@ -34,8 +34,24 @@ class MyTime:
             self.seconds == other.seconds
         )
 
+    def __ne__(self, other) -> bool:
+        return not self.__eq__(other)
+
+
+
+
 if __name__ == "__main__":
     time1 = MyTime(12, 12,12)
     time2 = MyTime(12, 22, 12)
 
     print(time1 == time2)
+
+
+
+    def __init__(self, hours, minutes, seconds):
+        self.hours, self.minutes, self.seconds = hours, minutes, seconds
+        self.timestamp = seconds + minutes * 60 + seconds * 60 * 60
+
+
+
+
