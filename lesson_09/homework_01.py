@@ -10,25 +10,30 @@ from lesson_09.lib_2 import Point
 
 
 class Triangle(Point):
-    coord_1 = None
-    coord_2 = None
-    coord_3 = None
 
-    def __init__(self, coord_1, coord_2, coord_3):
-        self.coord_1 = super().__init__(x, y)
-        self.coord_2 = super().__init__(x, y)
-        self.coord_3 = super().__init__(x, y)
+    def __init__(self, x1, y1, x2, y2 ,x3, y3):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
+        self.x3 = x3
+        self.y3 = y3
 
+    def area_triangl(self, x1, x2, x3, y1, y2, y3):
+        a = ((self.x2 - self.x1) + (self.y2 - self.y1)) ** 0.5
+        b = ((self.x3 - self.x2) + (self.y3 - self.y3)) ** 0.5
+        c = ((self.x3 - self.x1) + (self.y3 - self.y1)) ** 0.5
 
-    def area_triangl(self):
-        s = (p * (p - a) * (p - b) * (p - c)) ** 0.5
         p = (a + b + c)
-        a = ((x2 - x1) + (y2 - y1)) ** 0.5
-        b = ((x3 - x2) + (y3 - y3)) ** 0.5
-        c = ((x3 - x1) + (y3 - y1)) ** 0.5
+        s = (p * (p - a) * (p - b) * (p - c)) ** 0.5
+
         return s
 
-    def perimetr_triangl(self):
+    def perimetr_triangl(self, x1, x2, x3, y1, y2, y3):
+        a = ((self.x2 - self.x1) + (self.y2 - self.y1)) ** 0.5
+        b = ((self.x3 - self.x2) + (self.y3 - self.y3)) ** 0.5
+        c = ((self.x3 - self.x1) + (self.y3 - self.y1)) ** 0.5
+
         perimetr = a + b + c
         return perimetr
 
