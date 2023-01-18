@@ -6,9 +6,6 @@
 При потребности создавать все необходимые методы не описанные в задании.
 """
 
-from lesson_09.lib_2 import Point
-
-
 class Triangle:
 
     def __init__(self, x1, x2, x3, y1, y2, y3):
@@ -41,4 +38,3 @@ class Triangle:
 
 triangle = Triangle(3, 6, 11, 3, 8, 4)
 triangle.perimetr_triangl()
-
