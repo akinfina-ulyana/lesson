@@ -37,7 +37,8 @@ def select_user(email: str):
        return cursor.fetchone()
 
 
-select_user("manti.by@gmail.com")
+
+print(select_user("uly.ulitka@gmail.com"))
 
 
 
