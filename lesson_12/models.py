@@ -1,13 +1,14 @@
 from sqlalchemy import Integer, String, Column, ForeignKey, Float
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.ext.declarative import declarative_base  # для объявления таблиц в декларативном массиве
 from sqlalchemy.orm import relationship
 
-Base = declarative_base()
-
+Base = declarative_base() # все классы, которые будут описывать таблицы существующие или будущие будут наследоваться от
+                          # данного экземпляра класса
 
 class User(Base):
-    __tablename__ = "user"
-    id = Column(Integer, primary_key=True)
+    __tablename__ = "user"    # имя таблицы с которой связывается данный экземпляр класса
+    # (либо таблица будет создаваться если её нет в бд)
+    id = Column(Integer, primary_key=True)  # столбец со значением инт и устанавливается что это первичный ключ
     email = Column(String)
     password = Column(String)
 
