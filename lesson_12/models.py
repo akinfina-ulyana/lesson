@@ -23,7 +23,7 @@ class Profile(Base):
     phone = Column(String)
     age = Column(Integer)
 
-    user_id = Column(Integer, ForeignKey("user.id"))
+    user_id = Column(Integer, ForeignKey("user.id")) # являетсяс внешним ключом по отношению в стобцу id таблицы user
     user = relationship("User", back_populates="profile", uselist=False)
 
 
