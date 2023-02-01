@@ -1,6 +1,6 @@
 from sqlalchemy import Integer, String, Column, ForeignKey, Float
 from sqlalchemy.ext.declarative import declarative_base  # для объявления таблиц в декларативном массиве
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship  # возможно связывает объекты
 
 Base = declarative_base() # все классы, которые будут описывать таблицы существующие или будущие будут наследоваться от
                           # данного экземпляра класса
