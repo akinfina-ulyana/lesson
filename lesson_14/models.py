@@ -1,20 +1,22 @@
 from sqlalchemy import Integer, String, Column, ForeignKey, Float
-from sqlalchemy.ext.declarative import declarative_base  # для объявления таблиц в декларативном массиве
-from sqlalchemy.orm import relationship  # возможно связывает объекты
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 
-Base = declarative_base() # все классы, которые будут описывать таблицы существующие или будущие будут наследоваться от
-                          # данного экземпляра класса
+Base = declarative_base()
+
 
 class User(Base):
-    __tablename__ = "user"    # имя таблицы с которой связывается данный экземпляр класса
-    # (либо таблица будет создаваться если её нет в бд)
-    id = Column(Integer, primary_key=True)  # столбец со значением инт и устанавливается что это первичный ключ
+    __tablename__ = "user"
+    id = Column(Integer, primary_key=True)
     email = Column(String)
     password = Column(String)
 
     profile = relationship("Profile", back_populates="user", uselist=False)
     addresses = relationship("Address", back_populates="user")
     purchases = relationship("Purchase", back_populates="user")
+
+    def __str__(self):
+        return f"User #{self.email}"
 
 
 class Profile(Base):
@@ -23,9 +25,11 @@ class Profile(Base):
     phone = Column(String)
     age = Column(Integer)
 
-    user_id = Column(Integer, ForeignKey("user.id")) # являетсяс внешним ключом по отношению в стобцу id таблицы user
+    user_id = Column(Integer, ForeignKey("user.id"))
     user = relationship("User", back_populates="profile", uselist=False)
 
+    def __str__(self):
+        return f"Profile #{self.id}"
 
 class Address(Base):
     __tablename__ = "address"
@@ -36,12 +40,15 @@ class Address(Base):
     user_id = Column(Integer, ForeignKey("user.id"))
     user = relationship("User", back_populates="addresses", uselist=False)
 
+    def __str__(self):
+        return f"Address #{self.id}"
+
 
 class Purchase(Base):
     __tablename__ = "purchase"
     id = Column(Integer, primary_key=True)
-    user_id = Column(ForeignKey("user.id"), primary_key=True)
-    product_id = Column(ForeignKey("product.id"), primary_key=True)
+    user_id = Column(ForeignKey("user.id"))
+    product_id = Column(ForeignKey("product.id"))
     count = Column(Integer)
 
     user = relationship("User", back_populates="purchases", uselist=False)
@@ -53,7 +60,5 @@ class Product(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     price = Column(Float)
-    count = Column(Integer)
-    comment = Column(String)
 
     purchases = relationship("Purchase", back_populates="product")

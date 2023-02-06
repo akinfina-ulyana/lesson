@@ -1,4 +1,3 @@
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import create_database, database_exists
@@ -22,20 +21,27 @@ if __name__ == "__main__":
 
     user = User(email="test@test.com", password="password")
     session.add(user)
-
     session.commit()
 
-    address = Address(user_id=user.id, city="Minsk", address="Test")
+    address = Address(user_id=user.id, city="Minsk", address="Asanalieva")
     session.add(address)
 
-    profile = Profile(user_id=user.id, phone="+375292999999", age=20)
+    profile = Profile(user_id=user.id, phone="+375296375857", age=20)
     session.add(profile)
 
     user = session.query(User).filter(User.email == "test@test.com").first()
-    user.password = "new_password"
+    user.password = "Minsk_20"
     session.add(user)
     session.commit()
 
     result = session.query(Profile).filter(Profile.age >= 15)
     for x in result:
         print(x)
+
+    user = User(email="mulika@gmail.com", password="123422")
+    session.add(user)
+    session.commit()
+
+    user = User(email="shakal@gmail.com", password="password")
+    session.add(user)
+    session.commit()
