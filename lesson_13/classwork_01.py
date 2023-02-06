@@ -5,9 +5,9 @@ from sqlalchemy_utils import create_database, database_exists
 
 from lesson_12.models import Base, User, Address, Profile
 
-DB_USER = "ulitka"
-DB_PASSWORD = "ulitka"
-DB_NAME = "ulitka"
+DB_USER = "manti"
+DB_PASSWORD = "manti"
+DB_NAME = "manti"
 
 if __name__ == "__main__":
     engine = create_engine(
