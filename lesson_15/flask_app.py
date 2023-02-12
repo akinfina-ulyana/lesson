@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"]) # декоратор route() используется для привязки функции к URL.
 def index():
     if request.method == "POST":
         logger.info("Обрабатываю  POST запрос")
@@ -17,6 +17,8 @@ def index():
     for key, value in request.args.to_dict().items():
         logger.info(f"{key} = {value}")
     return "Hello, world"
+
+
 
 
 if __name__ == "__main__":
