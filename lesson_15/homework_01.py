@@ -7,6 +7,7 @@
 
 import logging
 from flask import Flask, render_template, url_for
+import flask_sqlalchemy
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
