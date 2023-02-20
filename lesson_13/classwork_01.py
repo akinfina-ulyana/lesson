@@ -33,8 +33,8 @@ if __name__ == "__main__":
     address = Address(user_id=user.id, city="Minsk", address="Test")
     session.add(address)
 
-    profile = Profile(user_id=user.id, phone="+375292999999", age=20)
-    session.add(profile)
+    # profile = Profile(user_id=user.id, phone="+375292999999", age=20)
+    # session.add(profile)
 
     user = session.query(User).filter(User.email == "test@test.com").first()
     user.password = "new_password"
@@ -43,20 +43,23 @@ if __name__ == "__main__":
 
     result = session.query(Profile).filter(Profile.age >= 15)
     for x in result:
-        print(x)
+        print(x.user_id)
+        result1 = session.query(User).filter(User.id == x.user_id)
+        for y in result1:
+            print(y.email)
 
-    user = User(email="mulika@gmail.com", password="2421555fh")
-    session.add(user)
-    session.commit()
-
-    user = User(email="shakal@gmail.com", password="gagag3939")
-    session.add(user)
-    session.commit()
-
-    user = User(email="miha2000@gmail.com", password="1gio23422")
-    session.add(user)
-    session.commit()
-
-    user = User(email="shagal_13@gmail.com", password="sdfgu6")
-    session.add(user)
-    session.commit()
+    # user = User(email="mulika@gmail.com", password="2421555fh")
+    # session.add(user)
+    # session.commit()
+    #
+    # user = User(email="shakal@gmail.com", password="gagag3939")
+    # session.add(user)
+    # session.commit()
+    #
+    # user = User(email="miha2000@gmail.com", password="1gio23422")
+    # session.add(user)
+    # session.commit()
+    #
+    # user = User(email="shagal_13@gmail.com", password="sdfgu6")
+    # session.add(user)
+    # session.commit()

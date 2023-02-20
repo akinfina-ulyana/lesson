@@ -34,3 +34,8 @@ if __name__ == "__main__":
     engine = create_engine("postgresql://ulitka:ulitka@localhost/ulitka")
     app.session = create_tables(engine)
     app.run()
+
+
+
+
+

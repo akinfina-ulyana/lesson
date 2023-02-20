@@ -18,7 +18,7 @@ class User(Base):
 
 
 class Profile(Base):
-    __tablename__ = "profile"
+    __tablename__ = "profile"m
     id = Column(Integer, primary_key=True)
     phone = Column(String)
     age = Column(Integer)
